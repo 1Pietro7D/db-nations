@@ -1,9 +1,14 @@
 package feb08;
 
+// https://docs.oracle.com/en/java/javase/17/docs/api/java.sql/java/sql/Connection.html
 import java.sql.Connection;
+// https://docs.oracle.com/en/java/javase/17/docs/api/java.sql/java/sql/DriverManager.html
 import java.sql.DriverManager;
+// https://docs.oracle.com/en/java/javase/17/docs/api/java.sql/java/sql/PreparedStatement.html
 import java.sql.PreparedStatement;
+// https://docs.oracle.com/en/java/javase/17/docs/api/java.sql/java/sql/ResultSet.html
 import java.sql.ResultSet;
+
 import java.sql.SQLException;
 import java.util.Scanner;
 
@@ -61,3 +66,10 @@ public class Main {
 	}
 
 }
+
+
+
+
+
+
+

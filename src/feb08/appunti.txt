@@ -1,0 +1,114 @@
+	
+	
+>>>	CONNECTION -- PRINCIPAL METHODS // https://docs.oracle.com/en/java/javase/17/docs/api/java.sql/java/sql/Connection.html
+
+	createStatement(): restituisce un'istanza di java.sql.Statement, che può essere utilizzata per eseguire istruzioni SQL sul database.
+
+	prepareStatement(String sql): restituisce un'istanza di java.sql.PreparedStatement, che può essere utilizzata per eseguire istruzioni SQL parametrizzate sul database.
+
+	commit(): conferma le modifiche apportate ai dati nel database durante la transazione corrente.
+
+	rollback(): annulla le modifiche apportate ai dati nel database durante la transazione corrente.
+
+	setAutoCommit(boolean autoCommit): imposta la modalità di commit automatico per la connessione. Se impostato su true, le modifiche apportate ai dati nel database saranno automaticamente confermate. Se impostato su false, è necessario utilizzare il metodo commit() o rollback() per gestire le transazioni.
+
+	close(): chiude la connessione al database.
+	
+	
+	
+	La classe java.sql.Connection è un'interfaccia che fornisce metodi per la gestione della connessione a un database. 
+	Ecco una lista delle classi che implementano l'interfaccia java.sql.Connection:
+	
+		- java.sql.DriverManager: classe per l'accesso al db
+		- java.sql.PreparedStatement: classe che rappresenta un'istruzione SQL precompilata e parametrizzata.
+		- java.sql.DataSource
+		- java.sql.ConnectionPoolDataSource
+		- org.springframework.jdbc.core.JdbcTemplate: classe che fornisce un modo semplice per eseguire query SQL e stored procedure sul database utilizzando Spring Framework.
+		- javax.sql.DataSource
+	
+	
+	
+	
+>>>	DRIVE-MANAGER -- PRINCIPAL METHODS // https://docs.oracle.com/en/java/javase/17/docs/api/java.sql/java/sql/DriverManager.html
+	
+	getConnection(String url, String username, String password): restituisce un'istanza di java.sql.Connection per la connessione al database specificato dall'URL con le credenziali fornite.
+
+	getConnection(String url): restituisce un'istanza di java.sql.Connection per la connessione al database specificato dall'URL senza fornire credenziali.
+
++	getConnection(String url, Properties info): restituisce un'istanza di java.sql.Connection per la connessione al database specificato dall'URL con le proprietà specificate.
+
+	registerDriver(Driver driver): registra un nuovo driver JDBC, che sarà utilizzato dalla classe DriverManager per la connessione ai database.
+
+	deregisterDriver(Driver driver): deregistra un driver JDBC registrato in precedenza.
+
+	getDrivers(): restituisce un Enumeration di tutti i driver JDBC registrati.
+
+	setLoginTimeout(int seconds): imposta il timeout per la connessione ai database.
+
+	getLoginTimeout(): restituisce il timeout corrente per la connessione ai database.
+
+X	setLogWriter(PrintWriter out): imposta il PrintWriter che sarà utilizzato per la stampa delle informazioni di debug.  -> DEPRECADE  X
+
+	getLogWriter(): restituisce il PrintWriter corrente che viene utilizzato per la stampa delle informazioni di debug.	
+	
+	
+	La classe java.sql.DriverManager fornisce un punto di accesso centrale per la gestione della registrazione e 
+	selezione dei driver JDBC (Java Database Connectivity) nei programmi Java. 
+	Essa mantiene un elenco interno di driver registrati e seleziona il driver corretto in base alla stringa di connessione fornita, 
+	creando e restituendo un oggetto di connessione al database. 
+	La classe DriverManager offre anche funzionalità supplementari, 
+	come la registrazione di un gestore di errori e l'elenco dei driver JDBC registrati.
+	
+	
+>>>	PREPARED-STATEMENT -- methods // https://docs.oracle.com/en/java/javase/14/docs/api/java.sql/java/sql/PreparedStatement.html
+	
+	void setInt(int parameterIndex, int x): imposta un valore intero per il parametro specificato.
+
+	void setString(int parameterIndex, String x): imposta un valore di stringa per il parametro specificato.
+
+	void setDate(int parameterIndex, java.sql.Date x): imposta un valore di data per il parametro specificato.
+
+	void setBoolean(int parameterIndex, boolean x): imposta un valore booleano per il parametro specificato.
+
+	int executeUpdate(): esegue l'istruzione SQL e restituisce il numero di righe interessate.
+
+	ResultSet executeQuery(): esegue l'istruzione SQL e restituisce un insieme di risultati.
+		\
+		 \>>>>	https://docs.oracle.com/en/java/javase/17/docs/api/java.sql/java/sql/ResultSet.html
+
+	void addBatch(): aggiunge l'istruzione corrente alla lista delle istruzioni da eseguire in batch.
+
+	void clearParameters(): pulisce tutti i parametri impostati per l'istruzione corrente.
+
+	void close(): chiude l'oggetto PreparedStatement.
+	
+	void setFloat(int parameterIndex, float x): imposta un valore a virgola mobile per il parametro specificato.
+
+	void setDouble(int parameterIndex, double x): imposta un valore a virgola mobile per il parametro specificato.
+
+	void setLong(int parameterIndex, long x): imposta un valore intero lungo per il parametro specificato.
+
+	void setShort(int parameterIndex, short x): imposta un valore intero corto per il parametro specificato.
+	
+	void setObject(int parameterIndex, Object x): imposta un oggetto qualsiasi per il parametro specificato.
+	
+	void setArray(int parameterIndex, Array x): imposta un oggetto Array per il parametro specificato.
+
+	void setBigDecimal(int parameterIndex, BigDecimal x): imposta un valore BigDecimal per il parametro specificato.
+
+	void setDate(int parameterIndex, Date x): imposta un valore data per il parametro specificato.
+
+	void setTime(int parameterIndex, Time x): imposta un valore ora per il parametro specificato.
+
+	void setTimestamp(int parameterIndex, Timestamp x): imposta un valore timestamp per il parametro specificato.
+
+	void setURL(int parameterIndex, URL x): imposta un valore URL per il parametro specificato.
+
+	void setNString(int parameterIndex, String value): imposta una stringa Unicode per il parametro specificato.
+
+	void setNCharacterStream(int parameterIndex, Reader value, long length): imposta un flusso di caratteri Unicode per il parametro specificato.
+	
+	
+	
+	
+	
